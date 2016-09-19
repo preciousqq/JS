@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{
+	margin:0px;
+	border:0px;
+	padding:0px;
+	
+}
+#box{
+	position:relative;
+	margin:50px auto;
+	border:1px solid #CF9;
+	background:#C9C;
+	width:500px;
+	height:300px;
+	overflow:hidden;
+	
+	
+}
+
+#box ul{
+	width:500px;
+	height:300px;
+	z-index:1;
+	position:absolute;
+	top:0px;
+	left:0px;
+	
+}
+/*
+	去掉li与img中间的空隙有三种方法
+	1.给li加font-size:0px;
+	2.给img加vertical-align:bottom;
+	3.给img加display:block;
+
+*/
+#box li{
+	list-style:none;	
+	font-size:0px;
+}
+#box ul img{
+	
+	display:block;
+	width:500px;
+	height:300px;
+	
+}
+#btn
+{
+	width:50px;
+	height:300px;
+	line-height:30px;
+	position:absolute;
+	top:90px;
+	right:5px;
+	z-index:2;
+	
+}
+#btn img
+{
+	width:30px;
+	height:30px;
+	
+}
+.active{
+	border:2px solid #FF6;
+}
+#up
+{
+	z-index:3;
+	position:absolute;
+	top:10%;
+	left:48%;
+	opacity:0.5;
+	filter:alpha(opacity:50);
+	
+}
+#down
+{
+	z-index:3;
+	position:absolute;
+	top:45%;
+	left:48%;
+	opacity:0.5;
+	filter:alpha(opacity:50);
+	
+}
+</style>
+<script type="text/javascript" src="sportFrame.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+	var oBox=document.getElementById("box");
+	var oUl=oBox.getElementsByTagName("ul")[0];
+	var aImg=oUl.getElementsByTagName("img");
+	var oBtn=document.getElementById("btn");
+	var aSimg=oBtn.getElementsByTagName("img");
+	var up=document.getElementById("up");
+	var down=document.getElementById("down");
+	cssStyle(oUl,'height',cssStyle(aImg[0],'height')*aImg.length);
+	var m=1;//代表向上走的计数器
+	var n=4;//代表向下走的计数器
+	var timer=null;
+	for(var i=0;i<aSimg.length;i++)
+	{
+		aSimg[i].index=i;
+		aSimg[i].onclick=function(){
+			for(var i=0;i<aSimg.length;i++)
+				{
+					aSimg[i].className="";
+				}
+			this.className="active";
+			m=n=this.index;
+			sport(oUl,'top',cssStyle(aImg[0],'height')*(-this.index));
+		}
+	}
+	timer=setInterval(function(){
+			if(m<aImg.length)
+			{
+				for(var i=0;i<aSimg.length;i++)
+				{
+					aSimg[i].className="";
+				}
+				aSimg[m].className="active";
+				sport(oUl,'top',cssStyle(aImg[0],'height')*(-m));
+				m++;
+				n++;
+			}
+			else
+			{
+				if(n>0)
+				{
+					--n;
+					
+					for(var i=0;i<aSimg.length;i++)
+					{
+						aSimg[i].className="";
+					}
+					aSimg[n].className="active";
+					sport(oUl,'top',cssStyle(aImg[0],'height')*(-n));
+					
+				}
+				else
+				{
+					m=1;
+					n=3;
+				}
+			}
+		
+		},3000);
+		up.onmouseover=function(){
+			sport(up,'opacity',100);
+		}
+		up.onmouseout=function(){
+			sport(up,'opacity',50);
+		}
+		down.onmouseover=function(){
+			sport(down,'opacity',100);
+		}
+		down.onmouseout=function(){
+			sport(down,'opacity',50);
+		}
+}
+</script>
+</head>
+
+<body>
+<a href="#"><img src="images/up.png" id="up"/></a>
+<a href="#"><img src="images/down.png" id="down"/></a> 
+<div id="box">
+	<ul>
+    	<li><img src="images/0.jpg"/></li>
+        <li><img src="images/1.jpg"/></li>
+        <li><img src="images/2.jpg"/></li>
+        <li><img src="images/3.jpg"/></li>
+    </ul>
+    <div id="btn">
+    	<img src="images/0.jpg"/ class="active"><br/>
+        <img src="images/1.jpg"/><br/>
+        <img src="images/2.jpg"/><br/>
+        <img src="images/3.jpg"/>
+    </div>
+</div>
+</body>
+</html>

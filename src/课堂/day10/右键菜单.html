@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+   window.onload=function()
+   {
+	   var oUl=document.getElementsByTagName('ul')[0];
+	 document.oncontextmenu=function(ev)  //context ---上下文  环境  menu
+	 {
+		 var oEvent=ev||event;
+		  
+		 oUl.style.left=oEvent.clientX+'px';
+		 oUl.style.top=oEvent.clientY+'px';
+		 oUl.style.display='block';
+		  return false; //阻止默认行为的发生
+	 };
+	 
+	 document.onclick=function(){
+		 
+		oUl.style.display='none';
+	 };   
+	   
+	};
+</script>
+<style>
+div ul { list-style:none;
+		 width:200px;
+		 height:300px;
+		 background:#ccc;
+		 display:none;
+		 position:absolute;
+		 }
+</style>
+</head>
+
+<body>
+<div>
+	<ul>
+    	<li>1111111111</li>
+        <li>222222222</li>
+        <li>3333333333</li>
+        <li>444444444</li>
+        <li>5555555555</li>
+    </ul>
+</div>
+</body>
+</html>

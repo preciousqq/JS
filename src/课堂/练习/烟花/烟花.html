@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script type='text/javascript' src='js/sportFrame.js'></script>
+<script> 
+window.onload=function()
+{ 
+    var oDiv1=document.getElementById('div1');
+	var aDiv = oDiv1.getElementsByTagName('div');
+	//var oDiv2 = document.getElementById('div2');
+	//var bDiv = oDiv2.getElementsByTagName('div');
+	
+	document.onkeydown=function(ev)
+	{
+		var aDiv1=oDiv1.createElement('div');
+		var aDiv2=oDiv1.createElement('div');
+		var aDiv3=oDiv1.createElement('div');
+		var aDiv4=oDiv1.createElement('div');
+		var aDiv5=oDiv1.createElement('div');
+		var aDiv6=oDiv1.createElement('div');
+		var aDiv7=oDiv1.createElement('div');
+		var aDiv8=oDiv1.createElement('div');
+		var aDiv9=oDiv1.createElement('div');
+		var aDiv10=oDiv1.createElement('div');
+		oDiv1.insertBefore(aDiv1,aDiv[0]);
+		oDiv1.insertBefore(aDiv2,aDiv[0]);
+		oDiv1.insertBefore(aDiv3,aDiv[0]);
+		oDiv1.insertBefore(aDiv4,aDiv[0]);
+		oDiv1.insertBefore(aDiv7,aDiv[0]);
+		oDiv1.insertBefore(aDiv5,aDiv[0]);
+		oDiv1.insertBefore(aDiv6,aDiv[0]);
+		oDiv1.insertBefore(aDiv7,aDiv[0]);
+		oDiv1.insertBefore(aDiv8,aDiv[0]);
+		oDiv1.insertBefore(aDiv9,aDiv[0]);
+		oDiv1.insertBefore(aDiv10,aDiv[0]);
+		
+		var oEvent = ev||event;
+		if(oEvent.keyCode==32)
+		{
+			for(var i=0;i<aDiv.length-1;i++)
+			{
+				aDiv[i].style.background=color02();
+				sport(aDiv[i],{top:300},function(){
+				
+					for(var i=0;i<aDiv.length-1;i++)
+					{  
+						sport(aDiv[i],{left:Math.random()*1300,top:Math.random()*600,
+						width:0,height:0});
+					}
+					});
+			}
+		}
+	};
+	function color02(){
+		var colors=Math.ceil(Math.random()*16777215).toString(16);
+		while(colors.length<6)
+		{
+			colors+="0"+colors;
+		}
+
+			return "#"+colors;
+
+	}
+};
+</script>
+<style>
+*{
+	margin:0px;
+	padding:0px;
+	border:0px;
+}
+#div1 div{
+	width:50px;
+	height:50px;
+	border-radius:50px;
+	position:absolute;
+	background:#CCCCCC;
+	left:50%;
+	top:620px;
+	opacity:0.8;
+	}
+/*#div2 div{
+	width:50px;
+	height:50px;
+	border-radius:50px;
+	position:absolute;
+	background:#CCCCCC;
+	left:50%;
+	top:620px;
+	opacity:0.8;
+	}*/
+</style>
+</head>
+
+<body>
+<div id='div2'></div>
+<div id='div1'>
+<div></div>
+<!--<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>-->
+</div>
+</body>
+</html>

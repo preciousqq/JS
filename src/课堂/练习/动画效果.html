@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#div1{
+	width:200px;
+	height:200px;
+	background:#FFCC66;
+	margin:auto;
+	margin-top:30px;
+	transform:rotate(45deg);
+/*	background-attachment:scroll;*/
+}
+#div1:hover{transform:rotate(225deg);
+           transition:all 0.2s ease-in;
+}
+#text1{
+	width:40px;
+	height:20px;
+	position:absolute;
+	margin:auto;
+	margin-left:600px;
+	margin-top:-110px;
+}
+#div1 p{
+	transform:rotate(-45deg);
+	margin-left:40px;
+	padding-top:50px;
+}
+#div2{
+	width:200px;
+	height:200px;
+	background:#6666FF;
+	margin:auto;
+}
+#div2:hover{transform:translate(50px,50px)}
+#div3{
+	width:200px;
+	height:200px;
+	background:#33CC00;
+	border:1px solid #99FF99;
+	border-radius:200px;
+	margin:auto;
+}
+#div3:hover{transform:scaleX(0.5);}
+#div4{
+	width:200px;
+	height:150px;
+	background:#99FFFF;
+	margin:auto;
+	transform:skew(30deg,20deg);
+}
+</style>
+</head>
+
+<body>
+<div id="div1"></div>
+<div id="text1">旋转</div>
+<div id="div2">移<br>动</div>
+<div id="div3">缩放</div>
+<div id="div4">扭曲</div>
+</body>
+</html>

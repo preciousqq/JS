@@ -1,0 +1,258 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+
+<style>
+*{
+	margin:0px;
+	padding:0px;
+	border:0px;
+}
+#box
+{
+	width:500px;
+	height:200px;
+	margin:100px auto;
+	overflow:hidden;
+	background:#CCC;
+	position:relative;
+	
+}
+#box ul{
+	width:500px;
+	height:200px;
+	z-index:1;
+	position:absolute;
+	top:0px;
+	left:0px;	
+}
+#box ul li{
+	float:left;
+	list-style:none;
+	}
+#box img{
+		width:500px;
+		height:200px;
+	}
+#btn{
+	width:150px;
+	height:30px;
+	position:absolute;
+	bottom:10px;
+	left:175px;
+	text-align:center;
+	z-index:2;
+	
+	
+}
+#btn input
+{
+	width:25px;
+	height:25px;
+	border:1px solid #66C;
+	border-radius:25px;
+}
+#btn .active
+{
+	background:#9F6;
+}
+.right{
+	width:20px;
+	height:50px;
+	opacity:0.5;
+	filter:alpha(opacity:50);
+	z-index:3;
+	position:absolute;
+	right:35%;
+	top:27%
+	
+}
+.left{
+	width:20px;
+	height:50px;
+	opacity:0.5;
+	filter:alpha(opacity:50);
+	z-index:3;
+	position:absolute;
+	left:35%;
+	top:27%
+	
+}
+
+</style>
+<script type="text/javascript" src="sport.js"></script>
+<script>
+window.onload=function(){
+	var oBox=document.getElementById("box");
+	var oUl=oBox.getElementsByTagName("ul")[0];
+	var aImg=oBox.getElementsByTagName("img");
+	var oBtn=document.getElementById("btn");
+	var aBtn=oBtn.getElementsByTagName("input");
+	var left=document.getElementsByClassName("left")[0];
+	var right=document.getElementsByClassName("right")[0];
+	var length=aBtn.length;
+	var timer=null;
+	var count=1;//控制向右走的计数器
+	var m=2;//控制向左走的计数器
+	var flag=1;//默认向右走,-1向左走
+	for(var i=0;i<length;i++)
+	{
+		aBtn[i].index=i;
+		aBtn[i].onclick=function(){
+			
+			for(var i=0;i<length;i++)
+				{
+					aBtn[i].className="";	
+				}
+			aBtn[this.index].className="active";
+			//向那走，给那个计数器赋当前选的值
+			if(flag==-1)
+			{
+				m=this.index;
+			}
+			else{
+				count=this.index;
+			}
+			sport(oUl,'left',(-this.index*cssStyle(aImg[0],'width')));
+			
+			}
+	}
+	cssStyle(oUl,'width',cssStyle(aImg[0],'width')*aImg.length);
+	
+	
+	timer=setInterval(function(){
+			if(count<aImg.length&&flag==1)
+			{
+				for(var i=0;i<length;i++)
+				{
+					aBtn[i].className="";	
+				}
+				aBtn[count].className="active";
+				sport(oUl,'left',-((count++)*cssStyle(aImg[0],'width')));
+				//判断当前图片是否是最后一张图片
+				if(count==4)
+				{
+					flag=-1;
+				}
+				
+			}
+			else
+			{
+				if(m>=0&&flag==-1)
+				{
+						for(var i=0;i<length;i++)
+					{
+						aBtn[i].className="";	
+					}
+					aBtn[m].className="active";
+					sport(oUl,'left',-((m--)*cssStyle(aImg[0],'width')));
+				}
+				else
+				{
+					count=1;
+					m=2;
+					flag=1;
+				}
+			}
+		
+		
+		},3000);
+	
+	//左右按钮触碰离开时透明度变化
+	left.onmouseover=function()
+	{
+			sport(left,'opacity',100);
+	}
+	left.onmouseout=function()
+	{
+			sport(left,'opacity',50);	
+	}
+	right.onmouseover=function()
+	{
+			sport(right,'opacity',100);
+	}
+	right.onmouseout=function()
+	{
+			sport(right,'opacity',50);	
+	}
+	left.onclick=function()
+	{
+		
+		//判断当前图片为第几张图片,left为负数，而图片宽度为正数，则必须前面加负号，图片数才能为正
+		t=Math.ceil(-cssStyle(oUl,'left')/cssStyle(aImg[0],'width'));
+		 //判断当前图片是否为第一张图片
+		  if(t>0)
+		 {
+		 	for(var i=0;i<length;i++)
+		  {
+			  aBtn[i].className="";	
+		  }
+		  aBtn[--t].className="active";
+		  //赋值
+		  if(flag==-1)
+		  {
+			  m=t;
+		  }
+		  else
+		  {
+		  	count=t;
+		  }
+		  sport(oUl,'left',-t*cssStyle(aImg[0],'width')) ;
+		 }
+					
+	}
+	
+	right.onclick=function()
+	{
+		
+		
+	 //判断当前图片为第几张图片
+		t=Math.ceil(-cssStyle(oUl,'left')/cssStyle(aImg[0],'width'));
+		
+		 //判断当前图片是否为最后一张图片
+		  if(t<3)
+		 {
+		 	for(var j=0;j<length;j++)
+		  {
+			  aBtn[j].className="";	
+		  }
+		  aBtn[++t].className="active";
+		  //赋值
+		  if(flag==-1)
+		  {
+			  m=t;
+		  }
+		  else
+		  {
+		  	count=t;
+		  }
+		  sport(oUl,'left',-t*cssStyle(aImg[0],'width')) ;
+		 }
+	}
+		
+}
+</script>
+</head>
+
+<body>
+<a href="#"><img src="images/next.png" class="right"></a>
+<a href="#"><img src="images/prev.png" class="left"></a>
+<div id="box">
+
+<div id="btn">
+	<input type="button" class="active" value="1"/>
+    <input type="button" value="2"/>
+    <input type="button" value="3"/>
+    <input type="button" value="4"/>
+</div>
+<ul>
+	<li><img src="images/0.jpg"/></li>
+    <li><img src="images/3.jpg"/></li>
+    <li><img src="images/6.jpg"/></li>
+    <li><img src="images/23.jpg"/></li>
+</ul>
+</div>
+</body>
+</html>

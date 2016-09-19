@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+	var oTxt=document.getElementById('money');
+	var oBut=document.getElementById('ticheng');
+	
+	oBut.onclick=function(){
+		var values=parseInt(oTxt.value);
+		if(values>=5000)
+		{
+			alert(values*0.003);
+		}else if(values>=10000)
+		{
+			alert(values*0.005);
+		}else if(values>=50000)
+		{
+			alert(values*0.02);
+		}else if(values>=100000)
+		{
+			alert(values*0.05);
+		}else
+		{
+			alert(values*0);
+		}
+	};
+};
+</script>
+</head>
+
+<body>
+<input type="text" value=" " id="money" />
+<input type="button" value="extra" id="ticheng" />
+</body>
+</html>

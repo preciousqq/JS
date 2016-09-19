@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	oDiv.onmouseover=function()
+	{
+		sport(600);	
+		
+	};
+	
+};
+var timer=null;
+function sport(end)
+{
+	clearInterval(timer);
+	var oDiv=document.getElementById('div1');
+	var speed=-1;
+
+	timer=setInterval(function(){
+		
+	
+		if(oDiv.offsetWidth==end)
+		{
+			clearInterval(timer);	
+			
+		}		
+		else
+		{
+			oDiv.style.width=oDiv.offsetWidth+speed+'px';	
+			
+		}
+	
+	 },30);
+	 
+	 //获取非行间样式	
+	
+	
+}
+</script>
+<style>
+#div1 { width:200px;
+		height:200px;
+		background:#3F9;
+	  
+		}
+</style>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>

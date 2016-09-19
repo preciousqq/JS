@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+/*function getStyle()
+{  
+	return arguments[0].style[arguments[1]];
+}
+
+function setStyle()
+{
+	arguments[0].style[arguments[1]]=arguments[2];	
+}
+*/
+
+function doStyle()
+{
+	if(arguments.length==2)
+	{
+		return arguments[0].style[arguments[1]];	
+	}
+	else
+	{
+		arguments[0].style[arguments[1]]=arguments[2];	
+	}
+
+}
+
+
+/*function cssStyle(obj,prop,value)
+{
+	if(arguments.length==2)
+	{
+		return obj.style[prop];	
+	}
+	else
+	{
+		obj.style[prop]=value;	
+	}	
+}*/
+
+ window.onload=function()
+ {
+	 var oBox=document.getElementById('box');
+	 
+	  alert(doStyle(oBox,'width'));
+	  
+	 doStyle(oBox,'background','blue');
+	  
+};
+</script>
+</head>
+
+<body>
+<div id="box" style="width:200px; height:200px; background:red;"></div>
+</body>
+</html>

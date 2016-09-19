@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+ var  oBox=document.getElementById('box');
+ var  oTxt01=document.getElementById('text01');
+ var  oBtn=document.getElementsByTagName('input')[0];
+ var  aDiv=oBox.getElementsByTagName('div');	
+
+ oBtn.onclick=function()
+ {
+	var oDiv=document.createElement('div');
+	oDiv.innerHTML=oTxt01.value;
+	if(aDiv.length>0)
+	{
+	   oBox.insertBefore(oDiv,aDiv[0]);	
+	}
+	else
+	{
+		oBox.appendChild(oDiv);
+	}	 
+ };
+	
+};
+
+</script>
+<style>
+#box {width:800px;
+	  border:1px solid #900;}
+#box div{ background:#CCC;
+		 border-bottom:2px dashed #FF0033;
+		  border-radius:3px;
+		  margin:5px;
+		  }
+</style>
+</head>
+
+<body>
+<div id="box">
+	
+
+</div>
+<textarea id="text01" rows="10" cols="50"></textarea><br>
+<input type="button" value="确定">
+</body>
+</html>

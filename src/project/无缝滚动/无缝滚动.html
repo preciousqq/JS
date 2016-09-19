@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script> 
+window.onload=function(){
+	var oBox=document.getElementById("box");
+	var oUl=oBox.getElementsByTagName("ul")[0];
+	var aImg=oBox.getElementsByTagName("img");
+	var aBtn01=document.getElementById("btn01");
+	var aBtn02=document.getElementById("btn02");
+	var timer=null;
+	
+	oUl.innerHTML=oUl.innerHTML+oUl.innerHTML;
+	oUl.style.width=aImg[0].offsetWidth*aImg.length+'px';
+	
+	aBtn01.onclick=function(){
+	 clearInterval(timer);
+	 timer=setInterval(function(){
+		 
+		 if(oUl.offsetLeft>-(oUl.offsetWidth)/2){
+			 
+		 oUl.style.left=oUl.offsetLeft-2+'px';
+		 }
+		 else{
+			 oUl.style.left='0px';
+		 }
+		 },30);
+	};
+	aBtn02.onclick=function b(){
+		 clearInterval(timer);
+		 timer=setInterval(function(){
+			 
+			 if(oUl.offsetLeft>0)
+			 {
+				 oUl.style.left=-(oUl.offsetWidth)/2+'px';
+			 }
+			 else
+			 {
+				 oUl.style.left=oUl.offsetLeft+2+'px';
+			 }
+			 },30);
+	};
+	oUl.onmouseover=function(){
+		clearInterval(timer);
+	}
+	oUl.onmouseout=function(){
+		
+		 clearInterval(timer);
+		 
+		 timer=setInterval(function(){
+			 
+			 if(oUl.offsetLeft>0)
+			 {
+				 oUl.style.left=-(oUl.offsetWidth)/2+'px';
+			 }
+			 else
+			 {
+				 oUl.style.left=oUl.offsetLeft+2+'px';
+			 }
+			 },30);
+
+		
+	}
+};
+</script>
+<style>
+*{
+	margin:0px;
+	padding:0px;
+	border:0px;
+}
+#box{
+	width:800px;
+	height:100px;
+	margin:100px auto;
+	background:#CCFFFF;
+	overflow:hidden;
+	position:relative;
+}
+#box img{
+	width:200px;
+	height:100px;
+}
+ul{
+	height:100px;
+	list-style:none;
+	position:absolute;
+	/*top:0;
+	left:0;*/
+}
+ul li{float:left;}
+#btn01{
+	position:absolute;
+	left:170px;
+	top:145px;
+	background:#66FF99;
+	border-radius:5px;
+}
+#btn02{
+	position:absolute;
+	right:170px;
+	top:145px;
+	background:#66FF99;
+	border-radius:5px;
+}
+</style>
+</head>
+
+<body>
+<input id="btn01" type="button" value="向左滚动" />
+<input id="btn02" type="button" value="向右滚动" />
+<div id="box">
+    <ul>
+        <li><img src="images/1.jpg"></li>
+        <li><img src="images/2.jpg"></li>
+        <li><img src="images/3.jpg"></li>
+        <li><img src="images/5.jpg"></li>
+    </ul>
+</div>
+</body>
+</html>

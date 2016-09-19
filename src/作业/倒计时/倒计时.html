@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+	var oBox=document.getElementById('box');
+	var aImg=oBox.getElementsByClassName('img');
+	 function checkTime(i){
+		 if(i<10)
+		 {
+			 i='0'+i;
+		 }
+		 return i;
+		 
+	 }
+         var sh=setInterval(function(){
+		 var nowTime=new Date();
+		 var endTime=new Date('2016,6,18,15:00:00');
+		 var leftTime=parseInt((endTime.getTime()-nowTime.getTime())/1000);
+		 
+		 var d=parseInt(leftTime/(60*60*24));
+		 var h=parseInt(leftTime/(60*60)%24);
+		 var m=parseInt(leftTime/60%60);
+		 var s=parseInt(leftTime%60);
+		 m=checkTime(m);
+		 s=checkTime(s);
+		 oBox.innerHTML='距离六级考试还剩：'+'<br><br>'+d+'天'+h+'时'+m+'分'+s+'秒';
+		  
+ 				
+		 
+		 if(leftTime<=0){
+			 document.getElementById('box').innerHTML='结束';
+			 clearInterval(sh);
+		 }
+		 },1000)
+}
+</script>
+<style>
+body{background:#CFF;}
+#box{
+	width:400px;
+	height:220px;
+	background:url(images/7.jpg);
+	margin:120px auto;
+	color:#FF9;
+	font-size:24px;
+	padding-left:90px;
+	padding-top:100px;
+	border-radius:30px;
+}
+</style>
+</head>
+
+<body>
+<div id='box'></div>
+</body>
+</html>

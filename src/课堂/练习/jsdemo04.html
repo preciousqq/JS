@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oMenu=document.getElementById('menu');
+	var oBtn=document.getElementById('btn01');
+	
+	oBtn.onclick=function()
+	{
+		if(oMenu.style.display=='block')
+		{
+		  oMenu.style.display='none';
+		}
+		else
+		{
+		  oMenu.style.display='block';	
+		}
+	};
+	
+};
+
+</script>
+<style>
+#menu { width:200px;
+		height:500px;
+		background:#ccc;
+		display:none;
+}
+</style>
+</head>
+
+<body>
+ <input id="btn01" type="button" value="菜单" />
+ <div id="menu"></div>
+</body>
+</html>

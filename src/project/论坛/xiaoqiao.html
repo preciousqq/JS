@@ -1,0 +1,89 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body{
+	margin:0px;
+	padding:0px;
+    background:#CFF;
+  }
+  #box{
+	  width:500px;
+	  /*border:1px solid #CCC;*/
+	  margin-top:50px;
+	  margin-left:500px;
+	  }
+	  #txt{
+		  margin-top:10px;
+		  margin-left:630px;
+		  }
+		  #box .person{
+				  width:129px;
+				  height:100px;
+				  background:#CC6;
+				  border-right:1px solid #ccc;
+				  border-bottom:1px solid #ccc;
+				  margin-top:10px;
+				  float:left;
+			  }
+		  #box .discuss{
+				  width:370px;
+				  height:100px;
+				  background:#C3F;
+				  border-bottom:1px solid #ccc;
+				  margin-top:10px;
+				  float:left;
+			   }
+			 
+</style>
+<script>
+window.onload=function()
+{
+   var oBox=document.getElementById('box');
+   var oTxt=document.getElementById('txt');
+   var oBtn=document.getElementsByTagName('input');
+   var aPerson=oBox.getElementsByClassName("person");
+   var aDiscuss=oBox.getElementsByClassName('discuss');
+   
+  	oBtn[0].onclick=function()
+	{
+		var oDiv=document.createElement('div');
+		var oDiv1=document.createElement('div');
+		var otxt=document.createTextNode(oTxt.value);
+		var otxt1=document.createTextNode(oTxt.value);
+		/*oDiv.style.width="129px";
+		oDiv.style.height='100px';
+		
+		oDiv1.style.width='370px';
+		oDiv1.style.height='100px';
+		*/
+		oDiv.setAttribute('class','person');
+	    oDiv1.setAttribute('class','discuss');
+		
+		oDiv.appendChild(otxt);
+		oDiv1.appendChild(otxt1);
+		
+		oBox.insertBefore(oDiv1,aPerson[0]);
+		oBox.insertBefore(oDiv,aDiscuss[0]);
+		
+    };
+	oBox.removeChild(aPerson[0]);
+	oBox.removeChild(aDiscuss[0]);
+};
+</script>
+</head>
+
+<body>
+   <div id="box">
+  
+        <div class="person"></div>
+        <div class="discuss"></div>
+   
+   </div>
+   <textarea id="txt" rows="5" cols="50"></textarea>
+   <input type="button" value="发表" />
+   <!--<input type="button" value="删除" />-->
+</body>
+</html>

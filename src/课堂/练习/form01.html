@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+fieldset{ border:2px solid #F30;}
+legend{ color:#9F3;}
+input { width:300px;
+		height:200px;
+		}
+</style>
+</head>
+
+<body>
+<!--
+	分组标签：
+-->
+<fieldset> 
+	<legend>基本信息</legend>	
+    <form>
+    	<label for="txtuser">用户名:</label><input type="text" name="txtuser">
+        <input type="text" name="">
+    </form>
+</fieldset>
+<form action="" method="post" name="form1" id="form1">
+	<!--
+    	 文本框: 标识 text 
+         属性:id  name size:文本框的宽度  maxlength:能接收的最长字符个数
+         value:文本框值 
+    -->
+    <input type="text" id="txtuser" name="txtuser" size="20"  maxlength="6" value="username"/>
+    <!--
+    	密码框：password   此功能是以掩码的形式
+        
+    -->
+    <input type="password" id="txtpwd" name="txtpwd" size="20" maxlength="18" value="" />
+    <!--
+    	多行文本框：textarea
+        
+    -->
+    <textarea cols="10" rows="10" id="" name="" ></textarea>
+    <!--普通按钮：button
+    
+    -->
+    <input type="button" id="" name="" value="按钮">
+    <!--
+    	单选按钮：radio 只能选择一项
+    -->
+    <input type="radio" name="sex" id="sex" value="男" checked>男
+    <input type="radio" name="sex" id="sex" value="女">女
+    
+    <!--复选框
+    	checkbox: 可选选择多项
+    -->
+    <input type="checkbox" name="like" value="跳舞" checked>跳舞
+    <input type="checkbox" name="like" value="画画">画画
+    <input type="checkbox" name="like" value="武术">武术
+    <input type="checkbox" name="like" value="游泳">游泳
+    
+    <!--
+    	下拉列表
+        select
+    -->
+    <select name="水果" id="" multiple>
+    	<option value="樱桃">樱桃</option>
+        <option value="草莓">草莓</option>
+        <option value="葡萄">葡萄</option>
+        <option value="猕猴桃" selected>猕猴桃</option>
+    </select>
+    <input type="submit" value="登录">
+    <input type="reset"  value="取消">
+    
+
+</form>
+</body>
+</html>

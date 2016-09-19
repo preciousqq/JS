@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+
+	document.onclick=function()
+	{
+		for(var i=0;i<10;i++)
+		{
+			var flower=document.createElement('div');
+			
+			document.body.appendChild(flower);
+			flower.style.width='100px';
+			flower.style.height='100px';
+			
+			flower.innerHTML='<img src=images/'+(i+1)+'.jpg />';
+			
+			flower.style.position='absolute';
+			flower.style.top=parseInt(Math.random()*700)+'px';  //大于=0    <1
+			flower.style.left=parseInt(Math.random()*1600)+'px';
+		}
+	};
+};
+</script>
+<style>
+	img { width:50px;
+		  height:50px;
+		  opacity:0.8;
+		  border-radius:10px;
+	}
+</style>
+</head>
+
+<body bgcolor="#CCCCCC">
+</body>
+</html>

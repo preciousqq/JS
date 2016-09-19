@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oTxtScore=document.getElementById('txtscore');
+	var oBtn=document.getElementById('btnok');
+	
+	
+	oBtn.onclick=function()
+	{
+		var score=parseInt(oTxtScore.value);
+		if(score>=90)
+		{
+			alert('A');	
+			
+		}else if(score>=80)
+		{
+			alert('B');	
+			
+		}else if(score>=60)
+		{
+			alert('C');	
+			
+		}else
+		{
+			alert('D');	
+		}
+	};
+	
+};
+</script>
+</head>
+
+<body>
+<input type="text" value="" id="txtscore" />
+<input type="button" value="评分" id="btnok"/>
+</body>
+</html>

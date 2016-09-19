@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#box{
+	border:1px solid #CCC;
+	width:600px;
+	margin:30px auto;
+}
+#language{
+	border:1px solid #CFF;
+	border-radius:5px;
+	position:absolute;
+	left:41%
+}
+input{
+	margin-top:205px;
+	margin-left:102px;
+	}
+#box div{
+	margin:5px;
+	border-bottom:1px dotted #FFCCFF;
+	border:1px solid #CCF;
+	border-radius:3px; 
+	width:588px;
+	height:130px;
+}
+
+</style>
+<script>
+window.onload=function(){
+		var oBtn=document.getElementsByTagName("input")[0];
+		var oBox=document.getElementById("box");
+		var oTxt=document.getElementById("language");
+		var aDiv=oBox.getElementsByTagName("div");
+		oBtn.onclick=function(){
+				var oDiv=document.createElement("div");
+				var oDiv1=document.createElement("div");
+				var oDiv2=document.createElement("div");
+				oDiv1.style.cssFloat="left";
+				oDiv1.style.background="yellow";
+				oDiv1.style.height="70px";
+				oDiv1.style.width="70px";
+				oDiv2.style.cssFloat="left";
+				oDiv2.style.background="blue";
+				oDiv2.style.height="110px";
+				oDiv2.style.width="480px";
+				//oDiv2.innerHTML=oTxt.value;
+				//使用createTextNode防止<h1>hello</h1>
+				Text=document.createTextNode(oTxt.value);
+				oDiv2.appendChild(Text);
+				oDiv.appendChild(oDiv1);
+				oDiv.appendChild(oDiv2);
+				if(aDiv.length>0)
+				{
+					oBox.insertBefore(oDiv,aDiv[0]);
+				}
+				else
+				{
+					oBox.appendChild(oDiv);
+				}
+			}
+}
+</script>
+</head>
+
+<body>
+<div id="box">
+</div>
+<textarea id="language" rows="10"  cols="50"></textarea>
+<br/>
+<input type="button" value="发送"/>
+</body>
+</html>

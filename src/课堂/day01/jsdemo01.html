@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+
+<style>
+	#div1{ width:200px;
+		height:200px;
+		background:#F60;
+		}
+</style>
+
+<script>
+
+  var  oDiv=document.getElementById('div1');
+
+function toRed()
+{
+	//变量的定义
+	//钦差大臣------尚方宝剑
+	/**/
+	
+	oDiv.style.background='red';
+    oDiv.style.width='400px';
+    oDiv.style.height='400px';
+}
+
+
+function toGreen()
+{
+
+	oDiv.style.background='green';
+    oDiv.style.width='200px';
+    oDiv.style.height='200px';	
+}
+
+</script>
+
+</head>
+
+<body>
+	<!---->
+	<div id="div1" onMouseOver="toRed()" 
+    onMouseOut="toGreen()"></div>
+</body>
+</html>

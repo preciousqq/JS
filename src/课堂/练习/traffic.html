@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#box{
+	width:150px;
+	height:400px;
+	background:#CCCCCC;
+	margin-top:50px;
+	padding-left:70px;
+	padding-top:50px;
+}
+#green{
+	width:50px;
+	height:50px;
+	border-radius:50px;
+	background:#FFFFFF;
+	animation:green01 8s ease 0s,green01 30s ease 16s;
+}
+#yellow{
+    margin-top:100px;
+	width:50px;
+	height:50px;
+	border-radius:50px;
+	background:#FFFFFF;
+	animation:yell 3s ease 5s,
+	         yell 3s ease 13s;
+}
+
+#red{
+	margin-top:100px;
+	width:50px;
+	height:50px;
+	border-radius:50px;
+	background:#FFFFFF;
+	animation:redd 8s ease 8s;
+}
+@keyframes green01{
+	0%{background:#33FF00;}
+	100%{background:#33FF00;}
+}
+@keyframes redd{
+	0%{background:#FF0000;}
+	100%{background:#FF0000;}
+}
+@keyframes yell{
+	0%{background:#FFFF00; opacity:1}
+	20%{background:#FF0; opacity:0}
+	40%{background:#FF0; opacity:1}
+	60%{background:#FF0; opacity:0}
+	80%{background:#FF0; opacity:1}
+	100%{background:#FF0; opacity:0}
+	}
+</style>
+</head>
+
+<body>
+<div id="box">
+    <div id="green"></div>
+    <div id="yellow"></div>
+    <div id="red"></div>
+</div>
+</body>
+</html>

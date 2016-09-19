@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+	var oBox=document.getElementById("box");
+	var oPic=document.getElementById("message");
+	//var oBox01=document.getElementById("pic");
+	var oTxt=document.getElementById("text01");
+    /*var oMain=document.getElementById('main');*/
+	var oBtn=document.getElementsByTagName("input")[0];
+	
+	//pic内部div
+	var aDiv1=oPic.getElementsByTagName('div');
+	//box内部div
+	var aDiv=oBox.getElementsByTagName('div');
+	//var aPic=oPic.getElementsByTagName('div');
+	oBtn.onclick=function(){
+		var oDiv=document.createElement('div');
+		var pic=document.createElement('div');
+		var txt=document.createTextNode(oTxt.value);
+		//var txt1=document.createTextNode(oTxt.value);
+		oDiv.appendChild(txt);
+		//pic.appendChild(txt1);
+		/*if(aDiv.length>0&&aDiv1.length>0)
+		{*/
+		    oBox.insertBefore(oDiv,aDiv[0]); 
+			oPic.insertBefore(pic,aDiv1[0]);	
+		/*}
+		else
+		{
+			oBox.appendChild(oDiv);
+			oPic.appendChild(oDiv1);
+			
+		}
+		*/
+	};	
+	oBox.removeChild(aDiv[0]);
+	oPic.removeChild(aDiv1[0]);
+};
+</script>
+<style>
+#box{
+	width:800px;
+	/*margin:auto;*/
+	background:#CCFFFF;
+	/*border-bottom:1px solid #CCFFFF;
+	border-radius:5px;*/
+	float:left;
+}
+#message{
+	float:left;
+	width:100px;
+	border:1px solid #C63;
+}
+#message div{
+	width:100px;
+	height:100px;
+	border:1px solid #C63;
+	float:left;
+	}
+
+#box div{
+	width:800px;
+	height:100px;
+	border-bottom:1px dashed #666666;
+	/*margin:5px;
+	text-indent:10px;
+	padding:10px;
+	padding-bottom:5px;*/
+	float:left;
+	}
+/*#main{
+	width:800px;
+	margin-left:100px;
+	background:#FFFFFF;
+}
+*/
+#text01{
+	padding:10px;
+	background:#FFFFCC;
+	border:1px solid #CCCCFF;
+}
+/*#box span{
+	display:block;
+	margin-bottom:0px;
+	margin-right:0px;
+}*/
+</style>
+</head>
+
+<body>
+<div id='message'></div>
+<div id="box"></div>
+<!--<div id="main">-->
+<textarea id="text01" rows="10" cols="50"></textarea><br>
+<input type="button" value="确定" />
+<!--</div>-->
+</body>
+</html>

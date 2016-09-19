@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/sportFrame.js"></script>
+<script>
+window.onload=function()
+{
+	var aDiv=document.getElementsByTagName('div');
+	document.onkeydown=function(ev){
+		
+	var oEvent=ev||event;
+	
+	 if(oEvent.keyCode==32)
+	 {
+		 
+		for(var i=0;i<aDiv.length;i++)
+		{
+			sport(aDiv[i],{top:100},function(){
+				
+				for(var j=0;j<aDiv.length;j++)
+				{
+				 sport(aDiv[j],{left:Math.random()*1600,top:Math.random()*600});	
+				
+				}	
+				
+			});	
+		}	 
+	 }
+		
+	};
+	
+	
+};
+</script>
+<style>
+div{ width:50px;
+	 height:50px;
+	 background:#F30;
+	 position:absolute;
+	 left:800px;
+	 top:600px;
+	 }
+</style>
+</head>
+
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

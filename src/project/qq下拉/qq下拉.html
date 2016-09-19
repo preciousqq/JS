@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+	var opic=document.getElementById("pic");
+	var oMessage=document.getElementById("message");
+	var timer=null;
+	//
+	var oInput=document.getElementsByTagName("input");
+	var oUl=document.getElementsByTagName("ul");
+	for(var i=0;i<oInput.length;i++)
+	{
+		oInput[i].index=i;
+		oInput[i].onclick=function()
+		{ 
+		    
+			/*for(var i=0;i<oInput.length;i++)
+			{
+				oInput[i].className='';  //清空按钮所有的样式	
+				oUl[i].style.display='none';
+			}
+			*/
+			if(oUl[this.index].style.display=='block')
+			{
+				//this.className='active';//代表当前对象
+			    oUl[this.index].style.display='none';
+			}	
+			else {
+				//this.className='';//代表当前对象
+			    oUl[this.index].style.display='block';
+				}//怎么用一个对象控制另一个对象
+		};
+		
+		
+	}
+	
+	opic.onmouseover=oMessage.onmouseover=function(){
+		clearTimeout(timer);
+		oMessage.style.display='block';
+	};
+	opic.onmouseout=oMessage.onmouseout=function(){
+		
+		timer=setInterval(function(){
+			oMessage.style.display="none";
+			},1000);
+	};
+};
+</script>
+<style>
+#box{
+    width:230px;
+	height:650px;
+	border:1px solid #CCFFCC;
+	background:#CCCCFF;
+	float:right;
+	margin-right:30px;
+}
+#pic img{
+   width:70px;
+   height:70px;
+   margin:10px;
+}
+#message{
+	width:200px;
+	height:200px;
+	border:1px solid #FFCCCC;
+	float:right;
+	display:none;
+	margin-right:10px;
+}
+#box input{
+	width:230px;
+	text-align:left;
+}
+ul{
+	list-style:none;
+	display:none;
+	}
+#box .active{background:#FFFF66;}
+</style>
+</head>
+
+<body>
+<div id="box">
+    <div id="pic"><img src="imges/17.jpg"></div>
+    <input type="button" value="w w w">
+    <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    </ul>
+    <input type="button" value="family">
+    <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    </ul>
+    <input type="button" value="sister">
+    <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    </ul>
+    <input type="button" value="brother">
+    <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    </ul>
+</div>
+<div id="message"></div>
+</body>
+</html>

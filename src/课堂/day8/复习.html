@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+/*
+	运动框架：
+	1、相对概念-----参照物-----哪个物体运动----哪个物体的属性运动
+	2、匀速运动
+	3、缓冲运动（随着运动距离的减小，速度也随之减小，一直到终点） 运动误差
+	4、运动框架
+
+*/
+window.onload=function()
+{
+		var oBox=document.getElementById('box');
+		var oDiv1=document.getElementById('box1');
+		oBox.onclick=function(){
+			
+			sport(oBox,'height',600);	
+		};
+		
+		oDiv1.onclick=function(){
+		  sport(oDiv1,'width',600);	
+		};
+		
+		
+};
+
+var timer=null;
+
+function sport(obj,prop,end)
+{
+	clearInterval(timer);
+	
+	var speed=0;
+	timer=setInterval(function(){
+		
+	speed=(end-parseFloat(cssStyle(obj,prop)))/10;
+	
+	speed=speed>0?Math.ceil(speed):Math.floor(speed);
+	
+	if(parseFloat(cssStyle(obj,prop))==end)
+	{
+		
+		clearInterval(timer);	
+	}
+	else
+	{
+		//obj.style.width=obj.offsetWidth+speed+'px';	
+	    cssStyle(obj,prop,parseFloat(cssStyle(obj,prop))+speed+'px');
+		
+	}
+
+		},30);
+	 		
+}
+
+function cssStyle(obj,prop,value)
+{
+	if(arguments.length==2)
+	{
+		if(obj.currentStyle)
+		{
+			return obj.currentStyle[prop];	
+		}
+		else
+		{
+			return getComputedStyle(obj,false)[prop];
+		}
+	}
+	else
+	{
+		obj.style[prop]=value;	
+	}		
+}
+
+</script>
+<style>
+*{ margin:0px;
+	padding:0px;
+	border:0px;
+	}
+#box {width:200px;
+	  height:200px;
+	  background:#393;
+	  }
+#box1 {width:200px;
+	  height:200px;
+	  background:#F63;
+	  }
+</style>
+</head>
+
+<body>
+<div id="box"></div>
+<div id="box1"></div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+	var oDiv=document.getElementsByTagName('div')[0];
+	
+document.onkeydown=function(ev)
+{
+	var oEvent=ev||event;
+
+ 	if(oEvent.keyCode==39)
+	{
+		oDiv.style.left=oDiv.offsetLeft+10+'px';	
+	}
+	
+	if(oEvent.keyCode==37)
+	{
+		oDiv.style.left=oDiv.offsetLeft-10+'px';	
+	}
+	
+	if(oEvent.keyCode==38)
+	{
+		oDiv.style.top=oDiv.offsetTop-10+'px';	
+	}
+	
+	if(oEvent.keyCode==40)
+	{
+		oDiv.style.top=oDiv.offsetTop+10+'px';	
+	}
+	
+	if(oEvent.keyCode==40 && oEvent.keyCode==39)
+	{
+		oDiv.style.left=oDiv.offsetLeft+10+'px';
+		oDiv.style.top=oDiv.offsetTop+10+'px';	
+	}
+	
+  if(oEvent.keyCode==40 && oEvent.altKey)
+	{
+		oDiv.style.left=oDiv.offsetLeft+10+'px';
+		oDiv.style.top=oDiv.offsetTop+10+'px';	
+	}
+	
+  if(oEvent.keyCode==38 && oEvent.altKey)
+	{
+		oDiv.style.left=oDiv.offsetLeft-10+'px';
+		oDiv.style.top=oDiv.offsetTop-10+'px';
+		oDiv.innerHTML="hello";	
+	}
+  //屏蔽复制按钮
+  
+  if(oEvent.keyCode && oEvent.ctrlKey)
+  {
+		alert('hello');  
+  }
+   if(oEvent.keyCode!=65 && oEvent.ctrlKey)
+  {
+		alert('hello');  
+  }
+  // input text  数字 48 (if oEvent.keyCode>=48 && oEvent.keyCode<=57)
+  
+ 
+ alert(oEvent.keyCode);
+ 
+ // 有一个层可以左右移动在文档的底部  当我按空格的时候就会有层移动，如同礼花绽放的效果
+};
+
+};
+
+</script>
+<style>
+div{ width:200px;
+	 height:200px;
+	 background:#0C0;
+	 position:absolute;
+	 left:0px;
+	 bottom:0px;}
+</style>
+</head>
+
+<body>
+<div></div>
+</body>
+</html>

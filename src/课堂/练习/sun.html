@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	#sun{ width:200px;
+		  height:200px;
+		  border:0px solid #FC0;
+		  border-radius:200px;
+		  
+		 	transform:rotate(45deg);
+		  color:#FFF;
+		  background:-moz-repeating-radial-gradient(80% 20%, #F00,#F00 15px,#FC0 20px, #639 5px);
+		  
+		  
+		  position:relative;
+		  left:0px;
+		  top:400px;
+		  animation:sunsport 20s  linear ;
+		 }
+   #earth{
+	   	  width:1400px;
+		  height:600px;
+		  background:#306;
+		  
+	   }
+  @keyframes sunsport{
+	  0%{ position:relative; left:0px; top:400px;    transform:rotate(60deg) scale(1);}
+	   50%{position:relative; left:500px; top:200px;  transform:rotate(720deg) scale(1.5);}
+	   55%{position:relative; left:550px; top:180px;  transform:rotate(800deg) scale(1.5);}
+	  100%{position:relative; left:1000px; top:400px; transform:rotate(1720deg) scale(1);}
+	  }
+ @keyframes sunsport01{
+	 0%{   transform:scale(1);}
+	 50%{  transform:scale(1.5);}
+	 100%{ transform:scale(1);}
+	 }
+</style>
+</head>
+
+<body>
+	
+    <div id="earth">
+    	<div id="sun"></div>
+    </div>
+</body>
+</html>

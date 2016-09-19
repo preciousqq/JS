@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	var oUl=oBox.getElementsByTagName('ul')[0];
+	var aImg=oBox.getElementsByTagName('img');
+	var oBtn01=document.getElementById('btn01');
+	var oBtn02=document.getElementById('btn02');
+	var timer=null;
+	
+	//innerHTML 元素的内容
+	oUl.innerHTML=oUl.innerHTML+oUl.innerHTML;
+	oUl.style.width=aImg[0].offsetWidth*aImg.length+'px';
+	
+  
+	timer=setInterval(function(){
+		
+		/*if(oUl.offsetLeft>-(oUl.offsetWidth/2)) //向左滚动
+		{
+			oUl.style.left=oUl.offsetLeft-2+'px';
+		}
+		else
+		{
+			oUl.style.left='0px';	
+		}
+		*/
+		if(oUl.offsetLeft>0)
+		{
+			oUl.style.left=-oUl.offsetWidth/2+'px';	
+		}
+		else
+		{
+		  oUl.style.left=oUl.offsetLeft+2+'px';
+		}
+		
+		},30);	
+	
+	oUl.onmouseover=function(){
+		
+		clearInterval(timer);	
+	};
+	
+	oUl.onmouseout=function()
+	{
+		timer=setInterval(function(){
+		
+		/*
+		*/
+		if(oUl.offsetLeft>0)
+		{
+			oUl.style.left=-oUl.offsetWidth/2+'px';	
+		}
+		else
+		{
+		  oUl.style.left=oUl.offsetLeft+2+'px';
+		}
+		
+		},30);		
+	};
+	
+	oBtn01.onclick=function()
+	{
+		clearInterval(timer);
+	 timer=setInterval(function()
+	 {
+		 
+		 if(oUl.offsetLeft>-(oUl.offsetWidth/2)) //向左滚动
+		{
+			oUl.style.left=oUl.offsetLeft-2+'px';
+		}
+		else
+		{
+			oUl.style.left='0px';	
+		}
+	 }
+	 
+	,30)};
+	
+	oBtn02.onclick=function()
+	{
+		clearInterval(timer);
+	 timer=setInterval(function()
+	 {
+		 
+		 if(oUl.offsetLeft>0)
+		{
+			oUl.style.left=-oUl.offsetWidth/2+'px';	
+		}
+		else
+		{
+		  oUl.style.left=oUl.offsetLeft+2+'px';
+		}
+	 }
+	 
+	,30)};
+	
+};
+
+</script>
+<style>
+*{ margin:0px;
+  padding:0px;
+  border:0px;
+  }
+#box{ width:800px;
+	  height:100px;
+	  background:#309;
+	  position:relative;
+	  margin:100px auto;
+	  overflow:hidden;
+	  
+	  }
+
+#box img{ width:200px;
+		  height:100px;
+		  }
+#box ul {
+	     height:100px;
+	     position:absolute;
+		 top:0px;
+		 left:0px;
+	   }  
+#box ul li{ list-style:none;
+			float:left;
+}
+#btn01 { position:absolute;
+		 left:300px;
+		 top:150px;}
+#btn02 { position:absolute;
+		 right:300px;
+		 top:150px;}
+
+</style>
+</head>
+
+<body>
+<input id="btn01"  type="button" value="向左走">
+<input id="btn02"  type="button" value="向右走">
+
+<div id="box">
+
+
+	<ul>
+    	<li><img src="images/2.jpg"></li>
+        <li><img src="images/4.jpg"></li>
+        <li><img src="images/5.jpg"></li>
+        <li><img src="images/6.jpg"></li>
+    
+    </ul>
+
+
+</div>
+</body>
+</html>

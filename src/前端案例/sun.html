@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<canvas id="canvas01" width="1000" height="1000" style="background:#000;">
+		如果你的浏览器无法浏览，请升级你的浏览器！
+	</canvas>
+   <script type="text/javascript">
+   var canvas=document.getElementById('canvas01');
+   var cxt=canvas.getContext('2d');
+
+   var timer=0;
+   function drawsun(){
+   cxt.clearRect(0,0,1000,1000);
+   //画轨道
+   cxt.strokeStyle='#fff';
+   cxt.beginPath();
+   cxt.arc(500,500,150,0,360,false);
+   cxt.closePath();
+   cxt.stroke();
+   //画太阳
+   var g1=cxt.createRadialGradient(500,500,0,500,500,100);
+   g1.addColorStop(0.0,'yellow');
+   g1.addColorStop(1.0,'red');
+   cxt.fillStyle=g1;
+   cxt.beginPath();
+   cxt.arc(500,500,50,0,360,false);
+   cxt.closePath();
+   //cxt.stroke();
+   cxt.fill();
+  
+   //画地球
+    cxt.save();
+    cxt.translate(500,500);
+    cxt.rotate(timer*365/360*Math.PI/180);
+    cxt.beginPath();
+    cxt.arc(0,-150,30,0,360,false);
+    cxt.closePath();
+    var g1=cxt.createRadialGradient(0,-150,0,0,-150,30);
+     g1.addColorStop(0.0,'#78B1E8');
+     g1.addColorStop(1.0,'#050c12');
+    cxt.fillStyle=g1;
+    cxt.fill();
+    cxt.restore();
+    timer++;
+   } 
+    //使地球动起来
+   setInterval(drawsun,30);
+
+   </script>
+</body>
+</html>

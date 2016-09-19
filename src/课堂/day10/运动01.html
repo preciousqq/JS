@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+var oDiv=document.getElementById('box');
+ 
+  oDiv.onclick=function(){
+	  sport(oDiv,600);	
+	  };
+	
+};
+var timer=null;
+function sport(obj,end)  //当前位置和目标位置有个差值根据这个差值来判断运动的方向
+{   
+	clearInterval(timer);
+	var speed=0;
+	if(end-obj.offsetLeft>0)
+	{
+		speed=10;	
+	}
+	else
+	{
+		speed=-10;	
+	}
+	
+	
+	timer=setInterval(function(){
+		
+	if(end==obj.offsetLeft)
+	{
+		clearInterval(timer);	
+	}
+	else
+	{		
+		obj.style.left=obj.offsetLeft+speed+'px';
+	}
+	},30);
+}
+</script>
+<style>
+*{ margin:0px;
+	padding:0px;
+	border:0px;
+	}
+	
+#box { width:200px;
+	  height:200px;
+	  background:#0C0;
+	  position:absolute;
+	  }
+#line{ width:2px;
+		height:600px;
+		background:#F00;
+		position:absolute;
+		left:600px;
+		top:0px;}
+</style>
+</head>
+
+<body>
+	<div id="box"></div>
+    <div id="line"></div>
+</body>
+</html>

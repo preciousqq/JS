@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var i=0;
+	var j=0;
+	var k=0;
+	//矩形图案
+	for(i=0;i<5;i++)
+	{
+		for(j=0;j<5;j++)
+		{
+			document.write('*');	
+		}
+		document.write("<br>");	
+	}
+	//直角三角形
+	for(i=0;i<5;i++)
+	{
+		for(j=0;j<=i;j++)
+		{
+			document.write('*');	
+		}
+		document.write("<br>");	
+	}
+	
+	//等腰直角三角形
+	for(i=0;i<5;i++)
+	{
+		for(k=5/2+1;k>=i;k--)
+		{
+			document.write('-');	
+		}
+		for(j=0;j<i*2-1;j++)
+		{
+			document.write('*');	
+		}
+		document.write("<br>");	
+	}
+	//顶点为A
+	for(i=0;i<255;i++)
+	{
+		for(k=255/2+1;k>=i;k--)
+		{
+			document.write('-');	
+		}
+		for(j=0;j<i*2-1;j++)
+		{
+			document.write(String.fromCharCode(i));	
+		}
+		document.write("<br>");	
+	}
+	
+	
+};
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+	var oDiv=document.getElementsByTagName('div')[0];
+	oDiv.onmouseover=function(){
+		
+		sport(100);
+		};
+  oDiv.onmouseout=function(){
+		
+		sport(30);
+		};	
+	
+};
+var alpha=30;
+var timer=null;
+function sport(end)
+{
+	clearInterval(timer);
+	var oDiv=document.getElementsByTagName('div')[0];
+	var speed=0;
+	if(end-alpha>0)
+	{
+		speed=5;	
+	}
+	else
+	{
+		speed=-5;	
+	}
+	
+	timer=setInterval(function(){
+		if(end==alpha)
+		{
+			clearInterval(timer);	
+		}
+		else
+		{
+			alpha+=speed;	
+		   oDiv.style.filter='alpha(opacity:'+alpha+')';
+		   oDiv.style.opacity=alpha/100;
+		}
+	},30);
+     
+	
+}
+
+</script>
+<style>
+*{ margin:0px;
+  padding:0px;
+  border:0px;
+  }
+  
+div { width:200px;
+	  height:200px;
+	  background:#F03;
+	  opacity:0.3;  /* FF  chrome*/
+	  filter:alpha(opacity:30); /* IE */
+	 }
+</style>
+</head>
+
+<body>
+<div></div>
+</body>
+</html>

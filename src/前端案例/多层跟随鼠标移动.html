@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+ var aDiv=document.getElementsByTagName('div');
+ 
+ document.onmousemove=function(evt)
+ {
+	var oEvent=evt||event;
+	
+	for(var i=aDiv.length-1;i>0;i--)
+	{
+		aDiv[i].style.left=aDiv[i-1].offsetLeft+'px';
+		aDiv[i].style.top=aDiv[i-1].offsetTop+'px';	
+	}
+	
+	aDiv[0].style.left=oEvent.clientX+'px';
+	aDiv[0].style.top=oEvent.clientY+'px';		 
+ };	
+};
+</script>
+<style>
+div { width:80px;
+	  height:80px;
+	  background:#C06;
+	  position:absolute;
+	  border-radius:20px;
+	  color:#fff;
+	  text-align:center;
+	  font-size:24px;
+}
+</style>
+</head>
+
+<body>
+<div>西</div>
+<div>部</div>
+<div>开</div>
+<div>源</div>
+<div>技</div>
+<div>术</div>
+<div>中</div>
+<div>心</div>
+<div>欢</div>
+<div>迎</div>
+<div>你</div>
+<div>！</div>
+<div>！</div>
+<div>！</div>
+<div>！</div>
+
+</body>
+</html>

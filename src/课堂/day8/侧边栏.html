@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+		
+var oDiv=document.getElementById('box');
+
+   oDiv.onmouseover=function(){
+	   
+		sport(0);   
+  };
+  
+   oDiv.onmouseout=function(){
+	   
+		sport(-200);   
+  };
+};
+
+var timer=null;
+function sport(itarget)
+{ 
+	clearInterval(timer);
+	var oDiv=document.getElementById('box');
+	
+	var speed=0;
+	if(itarget-oDiv.offsetLeft>0)
+	{
+		speed=5;	
+	}
+	else
+	{
+		speed=-5;	
+	}
+	
+	timer=setInterval(function(){
+		
+		if(speed>0)
+		{
+			if(oDiv.offsetLeft>=itarget)
+			{
+				clearInterval(timer);	
+			}
+			else
+			{
+				oDiv.style.left=oDiv.offsetLeft+speed+'px';	
+			}
+		}
+		else
+		{
+			if(oDiv.offsetLeft<=itarget)
+			{
+				clearInterval(timer);	
+			}
+			else
+			{
+				oDiv.style.left=oDiv.offsetLeft+speed+'px';	
+			}
+		}
+		
+	},30);
+		
+}
+
+</script>
+<style>
+*{ margin:0px;
+	padding:0px;
+	border:0px;}
+	
+#box {  width:200px;
+		height:300px;
+		background:#63C;
+		position:absolute;
+		left:-200px;
+		top:100px;
+		}
+#box span{ 
+ 	  width:30px;
+	  height:80px;
+	  line-height:26px;
+	  display:block;
+	  position:absolute;
+	  right:-30px;
+	  top:110px;
+	  background:#CF6;
+	  text-align:center;
+	 
+ }
+
+</style>
+</head>
+
+<body>
+<div id="box">
+	<span>分享到</span>
+</div>
+</body>
+</html>

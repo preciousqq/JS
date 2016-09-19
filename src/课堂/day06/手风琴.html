@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+ var timer=null;
+window.onload=function(){
+	   var oBox = document.getElementById('box');
+	   var oDiv = oBox.getElementsByTagName('div');
+	  
+	  var  m=oDiv.length;
+	  var  n=52;
+	  
+	 for(var i=0;i<m;i++)
+	{
+		oDiv[i].index=i;
+		oDiv[i].onclick=function()
+		{ 
+		   if(oDiv[this.index].offsetWidth==52)
+		  {
+				n=400; 
+		  }
+		  
+		  if(oDiv[this.index].offsetWidth==400)
+			{
+				n=52;	
+			}	
+		  if(n==52)
+		  {
+			for(var j=m;j>=this.index;j--)
+		     {
+				 sport(timer,oDiv[j],52);	
+			 }
+		  }else if(n==400)
+			 
+			{  for(var j=0;j<=this.index;j++)
+				 {
+					 sport(timer,oDiv[j],400);	
+				 }
+			}
+		  
+		};
+		
+		//i=4;	
+	}
+	
+};
+ function sport(timer,obj,target)
+{   
+   clearInterval(timer);
+	var speed=0;	
+	timer=setInterval(function(){
+		speed=(target-obj.offsetWidth)/10;
+		speed=speed>0?Math.ceil(speed):Math.floor(speed);
+		if(obj.offsetWidth==target)
+		{
+		   clearInterval(timer);
+		}
+		else
+		{
+			obj.style.width=obj.offsetWidth+speed+'px';
+		}
+		
+		},30);
+	
+}
+</script>
+<style>
+*{
+	margin:0px;
+	padding:0px;
+	border:0px;
+}
+#box{
+	position:relative;
+	width:520px;
+	height:220px;
+	border:1px solid #FF6633;
+	margin:100px auto;
+	background:url(images/6.jpg);
+}
+#div1{
+	width:400px;
+	height:220px;
+	position:absolute;
+	background:url(images/1.jpg);
+	left:120px;
+	top:0px;
+}
+#div2{
+	width:400px;
+	height:220px;
+	position:absolute;
+	background:url(images/2.jpg);
+	left:80px;
+	top:0px;
+}
+#div3{
+	width:400px;
+	height:220px;
+	position:absolute;
+	background:url(images/3.jpg);
+	left:40px;
+	top:0px;
+}
+#div4{
+	width:400px;
+	height:220px;
+	position:absolute;
+	background:url(images/4.jpg);
+	left:0px;
+	top:0px;
+}
+#box span{
+	width:52px;
+	height:220px;
+	position:absolute;
+	right:0px;
+	top:0px;
+	text-align:center;
+	background:#90C;
+	font-size:18px;
+	font-weight:700;
+	color:#CC0;
+	border-right:2px solid #0F3;
+	
+}
+</style>
+</head>
+
+<body>
+<div id='box'>
+    <div id='div1'><span><br><br>图<br>片<br>1</span></div>
+    <div id='div2'><span><br><br>图<br>片<br>2</span></div>
+    <div id='div3'><span><br><br>图<br>片<br>3</span></div>
+    <div id='div4'><span><br><br>图<br>片<br>4</span></div>
+</div>
+</body>
+</html>

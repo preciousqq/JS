@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+	//  分析：
+	//  要用到4个按钮，对应的是4个层面 当鼠标点击时候，就会有层相对应。
+	
+	window.onload=function(){
+	var oBox=document.getElementById('box');
+	var aBtn=oBox.getElementsByTagName('input');
+	var	aDiv=oBox.getElementsByTagName('div');
+	
+	for(var i=0;i<aBtn.length;i++)
+	{
+		aBtn[i].index=i;
+		aBtn[i].onclick=function(){
+		
+		for(var i=0;i<aBtn.length;i++)
+		{
+			aBtn[i].className='';
+			aDiv[i].style.display='none';	
+		}
+		this.className='active';
+		
+		aDiv[this.index].style.display='block';
+	
+		};
+	
+	}
+		
+};
+</script>
+<style>
+ #box { width:400px;
+ 		height:400px;
+		border:1px solid #F06;
+		margin:auto;}
+
+#box div{ width:400px;
+		  height:380px;
+		  background:#CCC;
+		  display:none;
+		  }
+#box .active { background:#F90;}
+</style>
+</head>
+
+<body>
+<div id="box">
+    <input  class="active" type="button" value="新闻">
+    <input type="button" value="社会">
+    <input type="button" value="娱乐">
+    <input type="button" value="体育">
+    
+	<div style="display:block;">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+</body>
+</html>

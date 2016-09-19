@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script type="text/javascript" src="js/sportFrame.js"></script>
+<script>
+window.onload=function()
+{
+   var oBox=document.getElementById('box');
+   var oUl=oBox.getElementsByTagName('ul')[0];
+   var aImg=oUl.getElementsByTagName('img');
+   var oBtn=document.getElementById('btn');
+   var aBtn=oBtn.getElementsByTagName('input');
+   var leftBtn=document.getElementsByClassName('btn01')[0];
+   var rightBtn=document.getElementsByClassName('btn02')[0];
+   var timer1=null;
+ 
+  
+   var count=1;  //第一个指针
+   var m=4;		 //第二个指针
+   
+   //下面代码段的功能： 给数组aBtn的对象加索引，加点击事件，在事件处理程序中，先把所有的背景清除
+   // 在单独增加当前对象的背景，再调用运动框架
+   	for(var i=0;i<aBtn.length;i++)
+	{
+		aBtn[i].index=i;
+		aBtn[i].onclick=function(){
+			  for(var i=0;i<aBtn.length;i++)
+			 {
+			  aBtn[i].className='';	 
+			 }
+			 aBtn[this.index].className='active';
+			 
+			 count=m=this.index;
+			
+			sport(oUl,'left',-this.index*cssStyle(aImg[0],'width'));
+		};	
+		
+    }
+	
+	
+   cssStyle(oUl,'width',cssStyle(aImg[0],'width')*aImg.length);//扩大 ul宽度
+   
+   timer1=setInterval(function(){ 
+	   if(count<aImg.length)       //利用计数器让UL对象运动到相应的终点 运动的过程中 控制按钮的背景
+	   {
+		  
+		 for(var i=0;i<aBtn.length;i++)
+		 {
+		  aBtn[i].className='';	 
+		 }
+		 aBtn[count].className='active';
+	     sport(oUl,'left',-count*cssStyle(aImg[0],'width'));
+		  count++;
+		 
+		  
+	   }
+	   else
+	   {
+		  if(m>0)      //利用计数器让UL对象运动到相应的终点 运动的过程中 控制按钮的
+		  {		--m;
+			  for(var i=0;i<aBtn.length;i++)
+			 {
+			  aBtn[i].className='';	 
+			 }
+			 aBtn[m].className='active';
+		  sport(oUl,'left',(-m*cssStyle(aImg[0],'width')));
+		  }
+		  else
+		  {
+		     count=1;     // 计数器恢复
+			 m=4;	
+		  }
+	   }
+	  
+	   },3000);
+	   
+	 
+   leftBtn.onmouseover=function(){
+		sport(leftBtn,'opacity',100);   
+	};
+  leftBtn.onmouseout=function(){
+		sport(leftBtn,'opacity',30);   
+	};
+	   
+	 rightBtn.onmouseover=function(){
+		sport(rightBtn,'opacity',100);   
+	};
+  rightBtn.onmouseout=function(){
+		sport(rightBtn,'opacity',30);   
+	}; 
+	
+
+  
+};
+</script>
+<style>
+*{ margin:0px;
+	padding:0px;
+	border:0px;
+	}
+	
+#box { width:600px;
+	  height:300px;
+	  background:#F00;
+	  position:relative;
+	  margin:100px auto;
+	  overflow:hidden;
+	  }
+#box ul{ width:600px;
+		 height:300px;
+		 list-style:none;
+		 position:absolute;
+		 left:0px;
+		 top:0px;
+		 z-index:1;
+		 }
+#box ul li{ 
+		float:left;
+			}
+
+#box ul img{ width:600px;
+			 height:300px;}
+
+#btn { width:300px;
+		height:50px;
+		
+		position:absolute;
+		right:0px;
+		top:200px;
+		z-index:2;
+		}
+#btn input{width:50px;
+		   height:50px;
+		   }
+#btn .active{ background:#F90;}
+
+
+		
+.btn01{ position:absolute;
+						 left:32%;
+						 top:28%;
+						 z-index:5;
+						 opacity:0.3;
+						 filter:alpha(opacity:30);
+}
+
+.btn02{ position:absolute;
+						 right:32%;
+						 top:28%;
+						 z-index:5;
+						  opacity:0.3;
+						 filter:alpha(opacity:30);
+}
+
+</style>
+</head>
+
+<body>
+<a href="javascript:;"><img class="btn01" src="images/prev.png"></a>
+<a href="javascript:;"><img class="btn02" src="images/next.png"></a>	
+
+<div id="box">
+   
+	<div id="btn"> 
+        <input class="active" type="button" value="1">
+        <input type="button" value="2">
+        <input type="button" value="3">
+        <input type="button" value="4">
+    </div>
+	<ul>
+    	<li><img src="images/1.jpg"></li>
+    	<li><img src="images/2.jpg"></li>
+        <li><img src="images/4.jpg"></li>
+        <li><img src="images/5.jpg"></li>
+    </ul>
+</div>
+</body>
+</html>

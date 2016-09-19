@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+	
+	
+var form01=document.getElementById('form1');
+
+var oTxt01=document.getElementById('text01');
+
+  oTxt01.onfocus=function()
+  {
+	oTxt01.style.background='blue';  
+  };
+  
+  oTxt01.onblur=function()
+  {
+	oTxt01.style.background='red';  
+  };
+  
+  oTxt01.onchange=function(){
+		alert('a');  
+ };
+ 
+  form01.onsubmit=function(){
+	 if(oTxt01.value=='')
+	 {
+		alert('用户名不能为空');
+		
+		
+	 }	else
+	 { 
+	 
+	    return true; 
+	  
+	 }
+ };
+  
+};
+
+
+
+</script>
+</head>
+
+<body>
+<form id="form1" action="" method="post">
+
+<input type="text" id="text01" />
+<input type="submit">
+
+</form>
+</body>
+</html>

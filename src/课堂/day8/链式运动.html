@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/sportFrame.js" type="text/javascript"></script>
+<script>
+window.onload=function(){
+
+  var oBox=document.getElementById('box');
+  
+  oBox.onclick=function(){
+	  
+	sport(oBox,'width',600);
+	
+	};	
+	
+};
+</script>
+<style>
+*{ margin:0px;
+	padding:0px;
+	border:0px;
+	}
+#box {width:200px;
+	  height:200px;
+	  background:#C00;
+	  opacity:0.3;
+	  filter:alpha(opacity:30);
+	  }
+#box1 {width:200px;
+	  height:200px;
+	  background:#F63;
+	  }
+</style>
+</head>
+
+<body>
+<div id="box"></div>
+<div id="box1"></div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>烟花</title>
+<script type='text/javascript' src='js/sportFrame.js'></script>
+<script> 
+window.onload=function()
+{ 
+    var oDiv1=document.getElementById('div1');
+	var aDiv = oDiv1.getElementsByTagName('div');
+	
+	document.onkeydown=function(ev)
+	{
+		
+		var oEvent = ev||event;
+		if(oEvent.keyCode==32)
+		{ 
+		
+			for(var i=0;i<aDiv.length;i++)
+			{
+				aDiv[i].style.background=color02();
+				sport(aDiv[i],{top:300},function(){
+				
+					for(var i=0;i<aDiv.length;i++)
+					{  
+						sport(aDiv[i],{left:Math.random()*1300,top:Math.random()*600,
+						width:0,height:0});
+					}
+					});  
+			};
+		}
+	};
+	function color02(){
+		var colors=Math.ceil(Math.random()*16777215).toString(16);
+		while(colors.length<6)
+		{
+			colors+="0"+colors;
+		}
+
+			return "#"+colors;
+
+	}
+};
+</script>
+<style>
+*{
+	margin:0px;
+	padding:0px;
+	border:0px;
+}
+#div1 div{
+	width:50px;
+	height:50px;
+	border-radius:50px;
+	position:absolute;
+	background:#9F9;
+	left:50%;
+	top:580px;
+	opacity:0.8;
+	text-align:center;
+	}
+/*#div2 div{
+	width:50px;
+	height:50px;
+	border-radius:50px;
+	position:absolute;
+	background:#CCCCCC;
+	left:50%;
+	top:620px;
+	opacity:0.8;
+	}*/
+</style>
+</head>
+
+<body>
+<div id='div1'>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</div>
+</body>
+</html>

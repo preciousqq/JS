@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+
+window.onload=function()  //匿名函数
+{
+	var oDiv1=document.getElementById('div1');
+	
+	oDiv1.onclick=function()
+	{
+		
+		oDiv1.style.display='none';
+	};
+	
+	oDiv1.onmouseover=function()
+	{
+		oDiv1.className='box';
+	};
+	
+};
+
+
+</script>
+
+<style>
+.div1 { width:300px;
+		height:400px;
+		border:1px solid #C33;}
+
+.box{ width:500px;
+	  height:300px;
+	  background:#0F9;
+	  }
+
+</style>
+</head>
+
+<body>
+<div id="div1" class="div1">
+	
+</div>
+</body>
+</html>

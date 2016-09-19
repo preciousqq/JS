@@ -1,0 +1,40 @@
+@charset "utf-8";
+body {
+ font-size: 16px; 
+ scrollbar-highlight-color: buttonface; 
+ scrollbar-shadow-color: buttonface; 
+ color: #333333; 
+ scrollbar-3dlight-color: buttonhighlight; 
+ scrollbar-track-color: #0A0A0A; 
+ font-family: "Times New Roman", "宋体"; 
+ scrollbar-darkshadow-color: buttonshadow;
+}
+.todyaColor {
+ background-color: #99ff00;
+}
+td {
+ font-size: 18px; 
+ color: #333333
+}
+.input1 {
+ border-right: #cccccc 1px solid; 
+ padding-right: 1px; 
+ border-top: #cccccc 1px solid; 
+ padding-left: 1px; 
+ font-size: 12px; 
+ padding-bottom: 1px; 
+ border-left: #cccccc 1px solid; 
+ sursor: text; 
+ color: #333333; PADDING-TOP: 1px; 
+ border-bottom: #cccccc 1px solid; 
+ font-family: "Times New Roman", "宋体"; 
+ height: 24px;
+}
+#top{
+	width:420px;
+	height:30px;
+	background:#CFF;
+	margin-top:-42px;
+	line-height:30px;
+	color:#999;
+}

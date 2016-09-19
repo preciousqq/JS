@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var canvas01=document.getElementById('canvas01');
+			var cancxt=canvas01.getContext('2d');
+			
+
+    	
+      	    //cancxt.clearRect(0,0,1400,700);
+			cancxt.save();		
+			cancxt.beginPath();
+			cancxt.strokeStyle='#999999';
+			cancxt.fillStyle='#ccc';
+			cancxt.lineWidth=50;
+			cancxt.arc(200,200,150,0,360,false);
+			cancxt.stroke();
+			cancxt.fill();
+			cancxt.closePath();
+			//cancxt.fill();
+			cancxt.restore();
+
+			for(var i=0;i<4;i++)
+			{
+
+			cancxt.save();
+
+			 cancxt.beginPath();
+			 cancxt.translate(200,200);
+			 cancxt.strokeStyle='#999999';
+			 cancxt.lineWidth=10;
+			 cancxt.rotate(i*90*Math.PI/180);
+			 cancxt.moveTo(0,0);
+			 cancxt.lineTo(0,-120);
+			 cancxt.closePath();
+
+			 cancxt.stroke();
+			 cancxt.restore();
+
+	         cancxt.save();
+	         cancxt.fillStyle='red';
+	        
+	         cancxt.arc(200,200,20,0,360,false);
+	         cancxt.fill();
+	         cancxt.restore();
+
+
+
+			}
+	}
+
+
+
+
+
+	</script>
+	<style type="text/css">
+		div {   
+				width: 400px;
+				height: 400px;
+				//background: red;
+			    animation: an01 3s ease infinite;
+				transform-origin: center center; }
+
+		@keyframes an01 {
+
+			0%{ transform: rotateZ(45deg); }
+			25%{ transform: rotateZ(90deg); }
+			50%{ transform: rotateZ(135deg); }
+			100%{ transform: rotateZ(180deg); }
+
+		}
+	</style>
+	
+
+</head>
+<body style="background: green;">
+<div>
+  <canvas id="canvas01" width= "400" height="400">你的浏览器版本过低，请更新你的浏览器！</canvas>
+</div>	
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>黑客帝国</title>
+</head>
+<body>
+	<canvas id="canvas01"></canvas>
+	<script type="text/javascript">
+	var canvas01=document.getElementById('canvas01');
+	var cxt=canvas01.getContext('2d');
+
+	var s=window.screen;
+	var w=canvas01.width=s.width;
+	var h=canvas01.height=s.height;
+
+	// cxt.fillStyle=color02();
+	// cxt.font="20px 仿宋";
+	// cxt.fillText("黑客帝国流星雨",100,100);
+	var words=Array(256).join("1").split("");//生成一个数组，保存字符。
+
+	function draw(){
+		cxt.fillStyle="rgba(0,0,0,0.05)";
+		cxt.fillRect(0,0,w,h);
+		cxt.fillStyle=color02();
+		words.map(function(y,n){//数组里面元素的映射
+			  text=String.fromCharCode(65+Math.ceil(Math.random()*58));
+			  x=n*10;
+			  cxt.fillText(text,x,y);
+			  words[n]=(y>758+Math.random()*484)?0:y+10;
+		});//映射
+	}
+	 
+	  setInterval(draw,10);
+	//颜色生成器
+	// function color01(){
+	// 	var colors=[0,1,2,3,4,5,6,7,8,9,"a","b","c","d","e","f"];
+	// 	var col="";
+	// 	for(var i=0;i<6;i++)
+	// 	{
+	// 		var n=Math.ceil(Math.random()*15);
+	// 	    col+=""+colors[n];
+	// 	   if(i==5)
+	// 	   {
+	// 	   	return '#'+col;
+	// 	   }
+	// 	}
+	// }
+	//颜色生产器的第二种方法
+	function color02(){
+		var colors=Math.ceil(Math.random()*16777215).toString(16);
+		while(colors.length<6)
+		{
+			colors+="0"+colors;
+		}
+
+			return "#"+colors;
+
+	}
+	</script>
+</body>
+</html>

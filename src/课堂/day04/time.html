@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+
+/* setTimeout(function(){
+	  alert('hello');
+	 },1000);	
+	 
+*/
+var aBtn=document.getElementsByTagName('input');
+var timer=null;
+
+   aBtn[0].onclick=function(){
+	   
+	   timer=setInterval(function(){
+	  
+	   alert('hello');
+
+	   },1000);
+	   
+	  };
+  
+   aBtn[1].onclick=function()
+   {
+	  clearInterval(timer); 
+	   
+  };
+	   
+  
+	
+};
+</script>
+</head>
+
+<body>
+<input type="button" value="开启">
+<input type="button" value="关闭">
+</body>
+</html>

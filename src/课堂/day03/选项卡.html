@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+	/**
+		选项卡：
+		1、按钮---一组按钮--当鼠标单击就会改变他为当前状态（背景）
+		2、当鼠标点击的时候同时层也在改变。 一组
+		3、利用按钮来控制层的样式
+		
+		用到的知识点：
+		1、层、按钮
+		2、样式控制
+		3、事件处理
+		
+		写程序的思路：
+		·先布局
+		·确定事件
+		·写处理程序（找到对象，确定修改的属性，给属性加值）
+		·看结果
+	*/
+window.onload=function()
+{   
+    var oDiv=document.getElementById('box');   //获取box对象
+	var abtn=oDiv.getElementsByTagName('input');//从box对象内获取input对象数组
+    var aDiv=oDiv.getElementsByTagName('div');  //从box对象内获取div对象数组
+
+	for(var i=0;i<abtn.length;i++)
+	{
+		abtn[i].index=i;
+		abtn[i].onmouseover=function()
+		{
+			for(var i=0;i<abtn.length;i++)
+			{
+				abtn[i].className='';  //清空按钮所有的样式	
+				aDiv[i].style.display='none';
+			}
+			this.className='active';//代表当前对象
+			
+			aDiv[this.index].style.display='block';	//怎么用一个对象控制另一个对象
+		}
+		
+	}
+	
+};
+</script>
+<style>
+	#box { width:400px;
+		  height:400px;
+		  border:1px solid #F63;
+		  margin:auto;}
+	#box div{ width:400px;
+			  height:300px;
+			  background:#ccc;
+			  margin-top:10px;
+			  display:none;
+			  }
+	#box .active{ background:#FC0;}
+</style>
+</head>
+
+<body>
+<div id="box" style="background:#63F;">
+	<input class="active" type="button" value="新闻">
+    <input type="button" value="娱乐">
+    <input type="button" value="军事">
+    <input type="button" value="体育">
+    <div style="display:block;">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+</body>
+</html>
